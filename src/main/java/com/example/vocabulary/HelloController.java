@@ -15,16 +15,14 @@ public class HelloController {
 
     public void addToCollection(ActionEvent actionEvent) {
         words.add(TextInput.getText());
-        for (int index = 0; index < words.size(); index++){
-        listView.getItems().add(words.get(index));}
+        listView.getItems().add(words.get(words.indexOf(TextInput.getText())));
         TextInput.clear();
     }
 
     public void deleteFromTheCollection(ActionEvent actionEvent) {
         int deletedWord = listView.getSelectionModel().getSelectedIndex();
         words.remove(deletedWord);
-        for (int index = 0; index < words.size(); index++){
-            listView.getItems().add(words.get(index));}
+        listView.getItems().remove(deletedWord);
     }
 
 }
